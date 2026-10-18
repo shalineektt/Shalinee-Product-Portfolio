@@ -14,6 +14,7 @@
 <link rel="preload" href="assets/fonts/dm-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/design.css">
 
 </head>
 <body>
@@ -21,10 +22,10 @@
 <main class="page" id="main">
 <div class="px96" style="display: flex; align-items: center; justify-content: space-between; padding: 28px 96px; border-bottom: 1px solid #29282F">
 <a href="index.html" style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; color: #E9E7E3">Shalinee Kumari</a>
-<a href="index.html" style="font-size: 16px; color: #9B98A1">← All work</a>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="index.html#products">Products I’ve Built</a><span aria-hidden="true">/</span><a href="index.html#scimplify">Scimplify</a><span aria-hidden="true">/</span><a href="index.html#scinode-ecosystem">Scinode ecosystem</a><span aria-hidden="true">/</span><span aria-current="page">Scinode for Researchers</span></nav>
 </div>
 <div class="px96 reveal" style="display: flex; flex-direction: column; gap: 32px; padding: 96px 96px 64px 96px; ">
-<div style="font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #8F83C9; font-weight: 500">Scimplify · Scinode</div>
+<div style="font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #8F83C9; font-weight: 500">Scimplify · Scinode ecosystem · Partner side</div>
 <h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(52px, 7.22vw, 104px); line-height: 1.02; letter-spacing: -0.02em; max-width: 1100px">Scinode for Researchers</h1>
 <p style="margin: 0; font-size: 24px; line-height: 1.55; color: #C2C0C5; max-width: 900px">A platform where labs, CROs and scientists discover relevant R&amp;D opportunities, showcase their capabilities, and turn expertise into projects.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px"><a href="https://www.scimplify.com/scinode/researchers" rel="noopener" style="display: inline-flex; align-items: center; height: 44px; padding: 0 22px; border: 1px solid #3D3A46; border-radius: 999px; color: #E9E7E3; font-size: 15px; font-weight: 500" target="_blank">Visit Scinode for Researchers <span class="arr arr-ne">↗</span></a></div>
@@ -71,7 +72,8 @@
 <div style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(28px,3.3vw,48px);line-height:1.12;letter-spacing:-.01em">Instead of making researchers hunt for projects, Scinode brings relevant demand to their expertise.</div></div>
 <div class="jn-foot-card"><div style="font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#9B98A1">Measured</div><div class="jn-rail"><span>Acquisition</span><span>Activation</span><span>Opportunity view</span><span>Proposal</span><span>Project</span></div></div>
 </div></section>
-<div class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
+<nav class="toc" aria-label="On this page"><div class="toc-in"><a href="#the-problem">The problem</a><a href="#strategy">Strategy</a><a href="#product-decisions">Product decisions</a><a href="#the-funnel-i-managed">The funnel I managed</a><a href="#gtm-and-launch">GTM and launch</a><a href="#the-product-surface">The product surface</a><a href="#after-the-po">After the PO</a><a href="#business-impact">Business impact</a><a href="#what-i-learned">What I learned</a></div></nav>
+<div id="the-problem" class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
 <div style="font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #8F83C9; font-weight: 500">The problem</div>
 <div style="display: flex; flex-direction: column; gap: 24px">
 <div class="rg c3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px"><div style="background: #141418; border: 1px solid #29282F; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
@@ -86,7 +88,7 @@
 </div></div>
 </div>
 </div>
-<div class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
+<div id="strategy" class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
 <div style="font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #8F83C9; font-weight: 500">Strategy</div>
 <div style="display: flex; flex-direction: column; gap: 24px">
 <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(26px, 3.61vw, 52px); line-height: 1.08; letter-spacing: -0.01em">Build a demand-led R&amp;D network.</div>
@@ -105,7 +107,7 @@
 <div style="padding-top: 24px; border-top: 1px solid #29282F; font-size: 18px; line-height: 1.6; color: #C2C0C5; max-width: 820px"><span style="color: #8F83C9; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase">The product challenge</span><br/>Create enough value for each side while keeping the researcher experience simple.</div>
 </div>
 </div>
-<div class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
+<div id="product-decisions" class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
 <div style="font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #8F83C9; font-weight: 500">Product decisions</div>
 <div class="dp-list" style="display: flex; flex-direction: column; gap: 24px">
 <div class="decision-point" style="display: flex; gap: 20px; padding-top: 40px; border-top: 1px solid #29282F">
@@ -148,7 +150,7 @@
 </div>
 </div>
 </div>
-<div class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
+<div id="the-funnel-i-managed" class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
 <div style="font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #8F83C9; font-weight: 500">The funnel I managed</div>
 <div style="display: flex; flex-direction: column; gap: 24px">
 <p style="margin: 0; font-size: 24px; line-height: 1.65; color: #E9E7E3; max-width: 860px">From sign-up to a converted project.</p>
@@ -188,7 +190,7 @@
 <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; line-height: 1.2; padding-top: 24px; border-top: 1px solid #29282F; max-width: 820px">Sign-up wasn’t the metric that mattered. Being onboarded and reaching the first relevant opportunity was.</div>
 </div>
 </div>
-<div class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
+<div id="gtm-and-launch" class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
 <div style="font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #8F83C9; font-weight: 500">GTM and launch</div>
 <div style="display: flex; flex-direction: column; gap: 24px">
 <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 36px; line-height: 1.12">Seeding the network</div>
@@ -197,7 +199,7 @@
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><span style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 999px; font-size: 14px; border: 1px solid #323039; color: #C2C0C5">Campaigns</span><span style="color: #8F83C9; font-size: 16px">→</span><span style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 999px; font-size: 14px; border: 1px solid #323039; color: #C2C0C5">Researcher sign-up</span><span style="color: #8F83C9; font-size: 16px">→</span><span style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 999px; font-size: 14px; border: 1px solid #323039; color: #C2C0C5">Profile completion</span><span style="color: #8F83C9; font-size: 16px">→</span><span style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 999px; font-size: 14px; border: 1px solid #323039; color: #C2C0C5">Opportunity discovery</span><span style="color: #8F83C9; font-size: 16px">→</span><span style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 999px; font-size: 14px; border: 1px solid #323039; color: #C2C0C5">Proposal</span></div>
 </div>
 </div>
-<div class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
+<div id="the-product-surface" class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
 <div style="font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #8F83C9; font-weight: 500">The product surface</div>
 <div style="display: flex; flex-direction: column; gap: 24px">
 <div class="rg c2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 24px"><div style="display: flex; flex-direction: column; gap: 12px">
@@ -219,7 +221,13 @@
 </div></div><div style="font-size: 14px; color: #9B98A1">Live names, contacts and costs are blurred.</div>
 </div>
 </div>
-<div class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
+<div id="after-the-po" class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
+<div style="font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #8F83C9; font-weight: 500">After the PO</div>
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 36px; line-height: 1.15; letter-spacing: -0.01em; max-width: 860px">The ELN takes a project from PO to the bench.</div><p style="margin: 0; font-size: 18px; line-height: 1.65; color: #C2C0C5; max-width: 760px">Once an opportunity is converted into a project, the partner tracks the whole project in Scinode and logs experiments hour by hour in the ELN. The ELN also works on its own: a lab or an individual scientist can get it to log a single experiment, or all of a lab’s work, with no Scinode project.</p><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><span style="display: inline-flex; align-items: center; height: 38px; padding: 0 16px; border-radius: 999px; font-size: 14px; border: 1px solid #323039; color: #C2C0C5">Opportunity</span><span style="color: #8F83C9; font-size: 16px">→</span><span style="display: inline-flex; align-items: center; height: 38px; padding: 0 16px; border-radius: 999px; font-size: 14px; border: 1px solid #323039; color: #C2C0C5">Proposal</span><span style="color: #8F83C9; font-size: 16px">→</span><span style="display: inline-flex; align-items: center; height: 38px; padding: 0 16px; border-radius: 999px; font-size: 14px; border: 1px solid #323039; color: #C2C0C5">PO</span><span style="color: #8F83C9; font-size: 16px">→</span><span style="display: inline-flex; align-items: center; height: 38px; padding: 0 16px; border-radius: 999px; font-size: 14px; border: 1px solid #323039; color: #C2C0C5">Project</span><span style="color: #8F83C9; font-size: 16px">→</span><span style="display: inline-flex; align-items: center; height: 38px; padding: 0 16px; border-radius: 999px; font-size: 14px; border: 1px solid #323039; color: #C2C0C5">Tracking</span><span style="color: #8F83C9; font-size: 16px">→</span><span style="display: inline-flex; align-items: center; height: 38px; padding: 0 16px; border-radius: 999px; font-size: 14px; border: 1px solid #323039; color: #C2C0C5">Experiment log</span></div><div class="rg c2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px"><div style="background: #141418; border: 1px solid #8F83C9; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px"><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; line-height: 1.15">With a project</div><ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.65; color: #C2C0C5; display: flex; flex-direction: column; gap: 6px"><li style="padding-left: 4px">The opportunity and proposal convert into a project once the PO is in.</li><li style="padding-left: 4px">The partner tracks the entire project in one place.</li><li style="padding-left: 4px">Experiments are logged operation by operation, inside the project.</li></ul></div><div style="background: #141418; border: 1px solid #29282F; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px"><div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; line-height: 1.15">On its own</div><ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.65; color: #C2C0C5; display: flex; flex-direction: column; gap: 6px"><li style="padding-left: 4px">A lab or an individual scientist can get the ELN without a Scinode project.</li><li style="padding-left: 4px">Log one experiment, or a lab’s experiments.</li><li style="padding-left: 4px">The same operation-level log, with the same audit trail.</li></ul></div></div><div style="display: flex; flex-direction: column; gap: 12px"><div class="depth" style="border-radius:12px;border:1px solid #29282F;overflow:hidden;box-shadow:0 20px 80px rgba(143,131,201,0.08);background:#141418"><img alt="Experiment log for one batch" decoding="async" loading="lazy" src="assets/img/nuc-eln-log.webp" style="width: 100%; display: block; border: 0"/></div><div style="font-size: 14px; line-height: 1.6; color: #9B98A1">The experiment log: one row per operation, in the order it happened, with time, temperature, material charged and observations. Names and codes are blurred. <a href="nucleus-rd.html">See how it fits the internal R&amp;D workflow <span class="arr">→</span></a></div></div>
+</div>
+</div>
+<div id="business-impact" class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
 <div style="font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #8F83C9; font-weight: 500">Business impact</div>
 <div style="display: flex; flex-direction: column; gap: 24px">
 <div class="rg c3 lr" style="display: grid; grid-template-columns: 220px 150px minmax(0, 1fr); column-gap: 24px; align-items: baseline; padding: 22px 0; border-top: 1px solid #29282F">
@@ -234,7 +242,7 @@
 </div><div style="display: flex; flex-direction: column; gap: 10px; padding-top: 24px; border-top: 1px solid #29282F"><div style="font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: #9B98A1">My contribution</div><div style="font-size: 20px; line-height: 1.65; color: #E9E7E3; max-width: 820px">I owned the product strategy, researcher experience, activation funnel and GTM execution.</div></div>
 </div>
 </div>
-<div class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
+<div id="what-i-learned" class="rg c2 lr px96 reveal" style="display: grid; grid-template-columns: 260px minmax(0, 1fr); column-gap: 64px; padding: 96px 96px 0 96px">
 <div style="font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #8F83C9; font-weight: 500">What I learned</div>
 <div style="display: flex; flex-direction: column; gap: 24px">
 <div style="display: flex; gap: 20px; padding: 24px 0; border-top: 1px solid #29282F">
@@ -255,5 +263,6 @@
 </div>
 <footer class="site-foot px96"><span>© 2026 Shalinee Kumari · Product Manager, Bengaluru</span><span><a href="https://www.linkedin.com/in/shalinee-kumari" rel="noopener" target="_blank">LinkedIn</a>  ·  <a href="mailto:shalineekt@gmail.com">Email</a></span></footer></main>
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/design.js" defer></script>
 </body>
 </html>
