@@ -208,3 +208,16 @@ html.leaving main.page{opacity:0;transition:opacity .3s ease}
   a.mag{transform:none!important}
   .js main.page{animation:none!important}
 }
+
+
+/* ---------- Scinode ecosystem layer ---------- */
+.eco-panel{border:1px solid var(--line);border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:28px}
+.eco{display:grid;grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr) 36px minmax(0,1fr);column-gap:12px;align-items:stretch}
+.eco-arrow{display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:20px}
+.eco-sub{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--text3);font-weight:500}
+@media (max-width:1100px){
+  .eco{grid-template-columns:minmax(0,1fr);row-gap:8px}
+  .eco-arrow{height:28px}
+  .eco-arrow span{display:inline-block;transform:rotate(90deg)}
+}
+@media (max-width:800px){.eco-panel{padding:18px}}
