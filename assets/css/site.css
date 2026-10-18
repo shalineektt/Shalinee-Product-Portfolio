@@ -221,3 +221,6 @@ html.leaving main.page{opacity:0;transition:opacity .3s ease}
   .eco-arrow span{display:inline-block;transform:rotate(90deg)}
 }
 @media (max-width:800px){.eco-panel{padding:18px}}
+
+.diagram{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#0F0F12;padding:20px}
+.diagram svg{display:block;width:100%;min-width:900px;height:auto}
