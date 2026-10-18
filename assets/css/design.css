@@ -1,4 +1,6 @@
 /* ===================== simple, PM-ready UX layer ===================== */
+/* matte dots */
+body{background-color:var(--canvas);background-image:radial-gradient(rgba(233,231,227,.075) 1.1px,transparent 1.4px);background-size:26px 26px;background-position:13px 13px}
 ::selection{background:rgba(143,131,201,.38);color:#fff}
 p a,li a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .3s ease,opacity .2s ease}
 p a:hover,li a:hover{background-size:100% 1px;opacity:1}
