@@ -1,0 +1,7 @@
+{
+  "name": "shalinee-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio site for Shalinee Kumari, Product Manager",
+  "scripts": { "start": "npx serve ." }
+}
