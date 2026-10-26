@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Merchant Growth OS prototype</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--blue:#1061D1;--navy:#08357A;--orange:#F75300;--orangeText:#C24100;--bg:#F5F9FF;--tint:#E4EEFF;--card:#fff;--line:#D9E4F5;--text:#0F1A2B;--muted:#52627A;--green:#0F7A57;--greenBg:#E3F5EE;--amber:#9A5200;--amberBg:#FFF1DC;--red:#B3261E;--redBg:#FDE8E6;--grey:#5B6678;--greyBg:#EDF0F5;color-scheme:light}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;font-size:16px;line-height:1.45}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px;border-radius:6px}
+.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:var(--navy)}
+.mark{width:30px;height:30px;border-radius:9px;background:var(--blue);position:relative;flex:none}
+.mark::after{content:"";position:absolute;right:5px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--orange)}
+.biz{font-size:14px;color:var(--muted);font-weight:600}
+.sp{flex:1}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;font-size:13px;font-weight:700;border:1.5px solid var(--orangeText);color:var(--orangeText);background:#fff}
+.btn{border:1.5px solid var(--blue);background:#fff;color:var(--blue);border-radius:10px;padding:8px 14px;font-weight:700;font-size:14px}
+.btn:hover{background:var(--tint)}
+.btn.pri{background:var(--blue);color:#fff}
+.btn.pri:hover{background:var(--navy);border-color:var(--navy)}
+.btn.ghost{border-color:var(--line);color:var(--text)}
+.btn.sm{padding:5px 10px;font-size:13px}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+select.btn{padding-right:8px}
+.banner{background:var(--navy);color:#fff;text-align:center;font-size:14px;padding:8px 16px}
+.shell{display:grid;grid-template-columns:200px minmax(0,1fr) 320px;gap:20px;max-width:1480px;margin:0 auto;padding:20px}
+.side{display:flex;flex-direction:column;gap:6px;position:sticky;top:86px;align-self:start}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left;border:0;background:transparent;border-radius:10px;padding:11px 14px;font-weight:700;color:var(--muted);font-size:15px}
+.nav:hover{background:var(--tint);color:var(--navy)}
+.nav[aria-current=page]{background:var(--blue);color:#fff}
+.badge{min-width:22px;height:22px;padding:0 7px;border-radius:999px;background:var(--orange);color:#fff;font-size:12px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+.nav[aria-current=page] .badge{background:#fff;color:var(--blue)}
+main{min-width:0;display:flex;flex-direction:column;gap:18px}
+h1{font-size:26px;line-height:1.2;margin:0;color:var(--navy);font-weight:800}
+h2{font-size:18px;line-height:1.3;margin:0;font-weight:800;color:var(--navy)}
+h3{font-size:15px;margin:0;font-weight:800}
+.sub{color:var(--muted);font-size:14px;margin:4px 0 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.ns{background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;border:0;display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
+.ns .big{font-size:44px;font-weight:800;line-height:1}
+.ns p{margin:6px 0 0;color:#DCE8FF;font-size:14px;max-width:520px}
+.ns .lab{font-size:13px;font-weight:800;letter-spacing:.04em;color:#FFD2B8}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.kpi b{font-size:30px;line-height:1.1;font-weight:800;color:var(--navy)}
+.kpi span{font-size:14px;color:var(--muted);font-weight:600}
+.kpi small{font-size:13px;color:var(--blue);font-weight:700}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+.funnel{display:flex;flex-direction:column;gap:10px}
+.fbar{display:grid;grid-template-columns:110px minmax(0,1fr) 70px;gap:12px;align-items:center;font-size:14px}
+.fbar .tr{background:var(--tint);border-radius:8px;height:26px;overflow:hidden}
+.fbar .fl{height:100%;background:var(--blue);border-radius:8px;min-width:4px}
+.fbar:nth-child(3) .fl{background:#2F7BE5}
+.fbar:nth-child(4) .fl{background:var(--orange)}
+.fbar b{text-align:right}
+.list{display:flex;flex-direction:column}
+.item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:12px 0;border-top:1px solid var(--line);text-align:left;background:transparent;border-left:0;border-right:0;border-bottom:0;width:100%}
+.list .item:first-child{border-top:0}
+button.item:hover{background:var(--bg)}
+.item .t{font-weight:700}
+.item .m{font-size:13px;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 11px;border-radius:999px;font-size:13px;font-weight:700;white-space:nowrap}
+.chip::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.c-new{background:#E4EEFF;color:#0B4DA8}.c-contacted{background:var(--amberBg);color:var(--amber)}.c-booked{background:var(--greenBg);color:var(--green)}.c-lost{background:var(--greyBg);color:var(--grey)}.c-missed{background:var(--redBg);color:var(--red)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font-weight:700;font-size:14px;color:var(--muted)}
+.tab[aria-selected=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+.tool{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+input[type=search],input[type=text],textarea,select.f{border:1.5px solid var(--line);border-radius:10px;padding:9px 12px;background:#fff;min-width:0}
+input[type=search]{width:240px;max-width:100%}
+textarea{width:100%;min-height:76px;resize:vertical}
+.rowL{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) 120px 120px;gap:12px;align-items:center;padding:13px 4px;border-top:1px solid var(--line);width:100%;text-align:left;background:transparent;border-left:0;border-right:0;border-bottom:0}
+.rowL:hover{background:var(--bg)}
+.rowL.hd{font-size:13px;color:var(--muted);font-weight:800;border-top:0;cursor:default}
+.rowL.hd:hover{background:transparent}
+.rowL .t{font-weight:700}.rowL .m{font-size:13px;color:var(--muted)}
+.back{border:0;background:transparent;color:var(--blue);font-weight:800;padding:0;font-size:14px;align-self:flex-start}
+.steps{display:flex;gap:8px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;border:1.5px solid var(--line);font-size:13px;font-weight:700;color:var(--muted);background:#fff}
+.step.on{border-color:var(--blue);color:var(--blue);background:var(--tint)}
+.step.done{border-color:var(--green);color:var(--green);background:var(--greenBg)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.opt{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:8px 14px;font-weight:700;font-size:14px}
+.opt[aria-pressed=true]{border-color:var(--blue);background:var(--tint);color:var(--blue)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+.lbl{font-size:13px;font-weight:800;color:var(--muted);letter-spacing:.03em;margin:0 0 8px}
+.tl{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+.tl li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px;font-size:14px}
+.tl li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--blue);margin-top:5px}
+.tl small{display:block;color:var(--muted)}
+.help{font-size:13px;color:var(--muted);margin:6px 0 0}
+.state{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:28px}
+.state h2{font-size:20px}
+.skel{display:flex;flex-direction:column;gap:12px}
+.sk{height:18px;border-radius:8px;background:linear-gradient(90deg,#E6EDF8,#F3F7FD,#E6EDF8);background-size:200% 100%;animation:sh 1.2s infinite linear}
+.sk.b{height:70px;border-radius:14px}
+@keyframes sh{to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.sk{animation:none}}
+.guide{position:sticky;top:86px;align-self:start;display:flex;flex-direction:column;gap:14px}
+.gs{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;padding:12px 0;border-top:1px solid var(--line);font-size:14px}
+.gs:first-of-type{border-top:0}
+.gn{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--muted)}
+.gs.ok .gn{background:var(--green);border-color:var(--green);color:#fff}
+.gs .btn{margin-top:8px}
+.tabbar{display:none}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:12px;font-weight:700;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:50;max-width:90vw}
+#toast.on{opacity:1}
+@media (max-width:1180px){.shell{grid-template-columns:200px minmax(0,1fr)}.guide{grid-column:1/-1;position:static}}
+@media (max-width:860px){
+ .shell{grid-template-columns:minmax(0,1fr);padding:14px 14px 90px}
+ .side{display:none}
+ .tabbar{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);z-index:30;padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px));gap:4px}
+ .tabbar .nav{flex:1;justify-content:center;font-size:14px;padding:10px 6px}
+ .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.two,.grid2{grid-template-columns:minmax(0,1fr)}
+ .rowL{grid-template-columns:minmax(0,1fr) auto}.rowL .col3,.rowL .col2{display:none}.rowL.hd{display:none}
+ .fbar{grid-template-columns:90px minmax(0,1fr) 56px}.ns .big{font-size:36px}
+ #toast{bottom:84px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="mark" aria-hidden="true"></span>Merchant Growth OS</div>
+  <div class="biz">Sample Dental Clinic · Bengaluru</div>
+  <div class="sp"></div>
+  <span class="pill">Prototype · sample data</span>
+  <label class="biz" for="uistate">View state</label>
+  <select class="btn" id="uistate" aria-label="Choose which screen state to preview">
+    <option value="normal">Normal</option><option value="loading">Loading</option><option value="empty">Empty</option><option value="error">Error</option>
+  </select>
+  <button class="btn" id="reset" type="button">Reset demo</button>
+</header>
+<div class="banner">Independent concept with synthetic data. Not connected to Justdial or any real system. Everything stays in this browser.</div>
+<div class="shell">
+  <nav class="side" aria-label="Main" id="side"></nav>
+  <main id="main" tabindex="-1"></main>
+  <aside class="guide" id="guide" aria-label="Guided demo"></aside>
+</div>
+<nav class="tabbar" aria-label="Main" id="tabbar"></nav>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+'use strict';
+var H=36e5, MIN=6e4, NOW=Date.now();
+var KEY='jd-merchant-growth-os-v1';
+var REASONS=['Wrong service','Price enquiry only','Out of area','Not a real enquiry'];
+var LOST=['Price','Too far','No answer','Chose another clinic','Not ready yet','Other'];
+var SLOTS=['Tomorrow 10:00','Tomorrow 11:30','Tomorrow 16:00','Day after, 09:30'];
+var FU=[['In 1 hour',1*H],['Today, 5 pm',4*H],['Tomorrow, 10 am',20*H]];
+// id,name,last4,reason,hoursAgo,connected,qualified,status,extra
+var SEED=[
+['L01','Ramesh','4821','Root canal',0.4,false,null,'new',{}],
+['L02','Anita','1290','Tooth pain, urgent',0.9,true,null,'new',{}],
+['L03','Farhan','7754','Cleaning',1.6,true,null,'new',{}],
+['L04','Divya','3308','Braces',2.2,false,null,'new',{}],
+['L05','Suresh','9012','Whitening',3.1,true,null,'new',{}],
+['L06','Lakshmi','6643','Implants',4.5,true,true,'contacted',{fu:'Today, 5 pm',resp:12}],
+['L07','Imran','2271','Wisdom tooth',5.8,true,true,'contacted',{fu:'Tomorrow, 10 am',resp:35}],
+['L08','Pooja','8895','Kids dentist',7,true,true,'booked',{slot:'Tomorrow 11:30',resp:8}],
+['L09','Naveen','5532','Cleaning',9,true,false,'lost',{lost:'Price enquiry only',resp:20}],
+['L10','Meena','4417','Root canal',11,true,true,'booked',{slot:'Tomorrow 10:00',resp:15}],
+['L11','Kiran','1186','Physiotherapy',13,true,false,'lost',{lost:'Wrong service',resp:5}],
+['L12','Sana','7209','Braces',20,true,true,'contacted',{fu:'Today, 5 pm',resp:70}],
+['L13','Arvind','3941','Tooth pain, urgent',22,true,true,'booked',{slot:'Tomorrow 16:00',resp:4}],
+['L14','Rekha','6075','Implants',26,false,null,'new',{}],
+['L15','Joseph','2284','Cleaning',28,true,true,'lost',{lost:'Chose another clinic',resp:90}],
+['L16','Nisha','9930','Whitening',30,true,false,'lost',{lost:'Out of area',resp:10}],
+['L17','Vikram','1157','Wisdom tooth',32,true,true,'lost',{lost:'No answer',resp:180}],
+['L18','Fatima','4466','Kids dentist',34,true,true,'contacted',{fu:'Tomorrow, 10 am',resp:25}],
+['L19','Manoj','8123','Root canal',46,true,null,'new',{}],
+['L20','Sunita','5791','Braces',50,true,true,'lost',{lost:'Not ready yet',resp:45}],
+['L21','Prakash','3360','Cleaning',52,true,false,'lost',{lost:'Not a real enquiry',resp:3}],
+['L22','Leela','6218','Implants',70,true,true,'booked',{slot:'Day after, 09:30',resp:18}],
+['L23','Ravi','1402','Tooth pain, urgent',74,false,null,'new',{}],
+['L24','Zoya','7788','Whitening',90,true,true,'lost',{lost:'Price',resp:240}]
+];
+function seed(){return SEED.map(function(s){var e=s[8];var at=NOW-s[4]*H;var tl=[{at:at,text:s[5]?'Call received and connected':'Missed call'}];
+ if(s[7]!=='new'){tl.push({at:at+(e.resp||10)*MIN,text:'Called back'});}
+ if(s[6]===true)tl.push({at:at+(e.resp||10)*MIN+MIN,text:'Marked qualified'});
+ if(s[6]===false)tl.push({at:at+(e.resp||10)*MIN+MIN,text:'Marked not qualified: '+e.lost});
+ if(s[7]==='booked')tl.push({at:at+(e.resp||10)*MIN+2*MIN,text:'Appointment confirmed: '+e.slot});
+ if(s[7]==='lost'&&s[6]!==false)tl.push({at:at+(e.resp||10)*MIN+2*MIN,text:'Marked lost: '+e.lost});
+ return {id:s[0],name:s[1],last4:s[2],reason:s[3],at:at,connected:s[5],qualified:s[6],status:s[7],fu:e.fu||null,slot:e.slot||null,lost:e.lost||null,resp:(e.resp!=null?e.resp:null),notes:[],tl:tl};});}
+var S={leads:seed(),view:'dashboard',filter:'all',q:'',sel:null,ui:'normal',p:{dash:false,afterBook:false}};
+function load(){try{var j=JSON.parse(localStorage.getItem(KEY)||'null');if(j&&j.leads){S.leads=j.leads;S.p=j.p||S.p;}}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({leads:S.leads,p:S.p}));}catch(e){}}
+load();
+var $=function(id){return document.getElementById(id);};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function pct(a,b){return b?Math.round(a/b*100)+'%':'–';}
+function when(ts){var d=new Date(ts),n=new Date(NOW);var h=('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2);var diff=Math.round((NOW-ts)/H);
+ if(NOW-ts<H)return Math.max(1,Math.round((NOW-ts)/MIN))+' min ago';if(diff<24)return diff+' h ago';return Math.round(diff/24)+' d ago, '+h;}
+function lead(id){return S.leads.filter(function(l){return l.id===id;})[0];}
+function chip(l){if(!l.connected&&l.status==='new')return '<span class="chip c-missed">Missed call</span>';var m={new:['c-new','New'],contacted:['c-contacted','Contacted'],booked:['c-booked','Booked'],lost:['c-lost','Lost']}[l.status];return '<span class="chip '+m[0]+'">'+m[1]+'</span>';}
+function stats(){var L=S.leads;var c=L.filter(function(l){return l.connected;}).length;var q=L.filter(function(l){return l.qualified===true;}).length;var b=L.filter(function(l){return l.status==='booked';}).length;
+ return {calls:L.length,conn:c,qual:q,book:b,newC:L.filter(function(l){return l.status==='new';}).length};}
+function followNow(){var L=S.leads.filter(function(l){return l.status==='new'&&NOW-l.at>1*H;}).sort(function(a,b){return a.at-b.at;});
+ var C=S.leads.filter(function(l){return l.status==='contacted'&&l.fu&&/Today/.test(l.fu);});return L.concat(C).slice(0,4);}
+function suggestions(){var L=S.leads,out=[];var missed=L.filter(function(l){return !l.connected&&l.status==='new';}).length;if(missed)out.push([missed+' missed '+(missed>1?'calls have':'call has')+' no callback','missed']);
+ var wait=L.filter(function(l){return l.status==='new'&&l.connected&&NOW-l.at>1*H;}).length;if(wait)out.push([wait+' new '+(wait>1?'leads have':'lead has')+' waited over an hour','new']);
+ var nofu=L.filter(function(l){return l.qualified===true&&l.status==='contacted'&&!l.fu;}).length;if(nofu)out.push([nofu+' qualified '+(nofu>1?'leads have':'lead has')+' no follow-up set','follow']);
+ var lost={};L.forEach(function(l){if(l.status==='lost'&&l.lost){lost[l.lost]=(lost[l.lost]||0)+1;}});var k=Object.keys(lost).sort(function(a,b){return lost[b]-lost[a];})[0];if(k)out.push(['Most common lost reason: '+k+' ('+lost[k]+')','lost']);return out;}
+function toast(t){var e=$('toast');e.textContent=t;e.className='on';clearTimeout(toast.t);toast.t=setTimeout(function(){e.className='';},2200);}
+function nav(){var s=stats();var items=[['dashboard','Dashboard'],['leads','Leads',s.newC],['insights','Insights']];
+ var h=items.map(function(i){return '<button class="nav" type="button" data-go="'+i[0]+'"'+((S.view===i[0]||(S.view==='detail'&&i[0]==='leads'))?' aria-current="page"':'')+'><span>'+i[1]+'</span>'+(i[2]?'<span class="badge" aria-label="'+i[2]+' new">'+i[2]+'</span>':'')+'</button>';}).join('');
+ $('side').innerHTML=h;$('tabbar').innerHTML=h;}
+function stateCard(){
+ if(S.ui==='loading')return '<div class="card skel" aria-busy="true" aria-label="Loading"><div class="sk b"></div><div class="sk"></div><div class="sk"></div><div class="sk b"></div></div>';
+ if(S.ui==='empty')return '<div class="card state"><h2>No enquiries yet</h2><p class="sub">When someone calls through your listing, it appears here within a minute. Meanwhile, check that your phone number and opening hours are correct.</p><button class="btn pri" type="button" data-act="ui" data-v="normal">Back to sample data</button></div>';
+ if(S.ui==='error')return '<div class="card state" role="alert"><h2>We could not load your enquiries</h2><p class="sub">Your data is safe. Check your connection and try again. If it keeps happening, contact support and quote code SAMPLE-503.</p><button class="btn pri" type="button" data-act="ui" data-v="normal">Try again</button></div>';
+ return '';}
+function bar(label,n,max,sub){return '<div class="fbar"><span>'+label+'</span><div class="tr"><div class="fl" style="width:'+(max?Math.max(2,n/max*100):0)+'%"></div></div><b>'+n+'</b></div>';}
+function dashboard(){
+ var sc=stateCard();var head='<div><h1>This week</h1><p class="sub">Enquiries from your Justdial listing, and what came of them.</p></div>';if(sc)return head+sc;
+ var s=stats();S.p.dash=true;
+ var f=followNow(),sg=suggestions(),rec=S.leads.slice().sort(function(a,b){return b.at-a.at;}).slice(0,5);
+ return head
+ +'<section class="card ns" aria-label="North Star"><div><div class="lab">NORTH STAR · THIS WEEK</div><div class="big">'+s.book+' <span style="font-size:20px;font-weight:700">of '+s.qual+' qualified leads booked</span></div><p>Qualified leads that become confirmed appointments. A booking is recorded here, by the clinic. Whether treatment is completed is not tracked.</p></div><div style="text-align:right"><div class="big">'+pct(s.book,s.qual)+'</div><p style="margin-left:auto">booked from qualified</p></div></section>'
+ +'<section class="kpis" aria-label="Funnel numbers"><div class="kpi"><span>Calls</span><b>'+s.calls+'</b><small>&nbsp;</small></div><div class="kpi"><span>Connected</span><b>'+s.conn+'</b><small>'+pct(s.conn,s.calls)+' of calls</small></div><div class="kpi"><span>Qualified</span><b>'+s.qual+'</b><small>'+pct(s.qual,s.conn)+' of connected</small></div><div class="kpi"><span>Booked</span><b>'+s.book+'</b><small>'+pct(s.book,s.qual)+' of qualified</small></div></section>'
+ +'<div class="two"><section class="card"><h2>Funnel</h2><div class="funnel" style="margin-top:12px">'+bar('Calls',s.calls,s.calls)+bar('Connected',s.conn,s.calls)+bar('Qualified',s.qual,s.calls)+bar('Booked',s.book,s.calls)+'</div><p class="help">Sample data. The biggest drop shows where to look first.</p></section>'
+ +'<section class="card"><h2>Follow up now</h2><div class="list" style="margin-top:6px">'+(f.length?f.map(function(l){return '<button class="item" type="button" data-open="'+l.id+'"><span><span class="t">'+esc(l.reason)+'</span><br><span class="m">'+esc(l.name)+' · ••••'+l.last4+' · '+when(l.at)+'</span></span>'+chip(l)+'</button>';}).join(''):'<p class="sub">Nothing waiting. Well done.</p>')+'</div></section></div>'
+ +'<div class="two"><section class="card"><h2>Suggested actions</h2><div class="list" style="margin-top:6px">'+(sg.length?sg.map(function(x){return '<div class="item"><span class="t">'+esc(x[0])+'</span><button class="btn sm" type="button" data-leads="'+x[1]+'">Open</button></div>';}).join(''):'<p class="sub">No suggestions right now.</p>')+'</div><p class="help">Rule-based: each suggestion is a count you can open and act on.</p></section>'
+ +'<section class="card"><h2>Recent enquiries</h2><div class="list" style="margin-top:6px">'+rec.map(function(l){return '<button class="item" type="button" data-open="'+l.id+'"><span><span class="t">'+esc(l.reason)+'</span><br><span class="m">'+esc(l.name)+' · '+when(l.at)+'</span></span>'+chip(l)+'</button>';}).join('')+'</div></section></div>';}
+function matches(l){var f=S.filter;var ok=true;
+ if(f==='new')ok=l.status==='new';else if(f==='missed')ok=!l.connected&&l.status==='new';else if(f==='follow')ok=(l.status==='contacted');else if(f==='booked')ok=l.status==='booked';else if(f==='lost')ok=l.status==='lost';
+ if(ok&&S.q){var q=S.q.toLowerCase();ok=(l.reason+' '+l.name+' '+l.last4).toLowerCase().indexOf(q)>-1;}return ok;}
+function leads(){
+ var head='<div><h1>Leads</h1><p class="sub">Every enquiry, with its status and next step.</p></div>';var sc=stateCard();if(sc)return head+sc;
+ var tabs=[['all','All'],['new','New'],['missed','Missed calls'],['follow','Follow up'],['booked','Booked'],['lost','Lost']];
+ var cnt=function(k){var f=S.filter,q=S.q;S.filter=k;S.q='';var n=S.leads.filter(matches).length;S.filter=f;S.q=q;return n;};
+ var L=S.leads.filter(matches).sort(function(a,b){return b.at-a.at;});
+ return head+'<div class="tool"><div class="tabs" role="tablist" aria-label="Filter leads">'+tabs.map(function(t){return '<button class="tab" role="tab" type="button" data-filter="'+t[0]+'" aria-selected="'+(S.filter===t[0])+'">'+t[1]+' '+cnt(t[0])+'</button>';}).join('')+'</div><input type="search" id="q" placeholder="Search reason or name" aria-label="Search leads" value="'+esc(S.q)+'"></div>'
+ +'<section class="card" style="padding:8px 14px"><div class="rowL hd" aria-hidden="true"><span>Enquiry</span><span class="col2">Caller</span><span class="col3">When</span><span>Status</span></div>'
+ +(L.length?L.map(function(l){return '<button class="rowL" type="button" data-open="'+l.id+'"><span><span class="t">'+esc(l.reason)+'</span><br><span class="m">'+esc(l.name)+(l.qualified===true?' · Qualified':l.qualified===false?' · Not qualified':'')+'</span></span><span class="col2 m">••••'+l.last4+'</span><span class="col3 m">'+when(l.at)+'</span><span>'+chip(l)+'</span></button>';}).join(''):'<div class="state"><h2>No leads match</h2><p class="sub">Try a different filter or clear the search.</p><button class="btn" type="button" data-filter="all">Show all leads</button></div>')+'</section>';}
+function stepper(l){var st=l.status;var a=[['New',st==='new'?'on':'done'],['Contacted',st==='contacted'?'on':(st==='new'?'':'done')],[st==='lost'?'Lost':'Booked',(st==='booked'||st==='lost')?'on':'']];return '<div class="steps" aria-label="Lead progress">'+a.map(function(x){return '<span class="step '+x[1]+'">'+x[0]+'</span>';}).join('')+'</div>';}
+function detail(){var l=lead(S.sel);if(!l)return leads();var closed=l.status==='booked'||l.status==='lost';
+ var h='<button class="back" type="button" data-go="leads">← Back to leads</button><div><h1>'+esc(l.reason)+'</h1><p class="sub">'+esc(l.name)+' · ••••'+l.last4+' · '+when(l.at)+' · via your Justdial listing</p></div><div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">'+chip(l)+stepper(l)+'</div>';
+ var qual='<section class="card"><h2>1. Qualify</h2><p class="help" style="margin-top:2px">Qualified means a real prospective patient who wants a service you offer, in your area.</p><div class="seg" style="margin-top:12px"><button class="opt" type="button" data-act="qual" data-v="yes" aria-pressed="'+(l.qualified===true)+'"'+(closed&&l.status==='lost'?' disabled':'')+'>Qualified</button>'+REASONS.map(function(r){return '<button class="opt" type="button" data-act="qual" data-v="'+esc(r)+'" aria-pressed="'+(l.qualified===false&&l.lost===r)+'"'+(l.status==='booked'?' disabled':'')+'>Not qualified: '+r+'</button>';}).join('')+'</div></section>';
+ var act='<section class="card"><h2>2. Follow up</h2><div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn pri" type="button" data-act="call"'+(closed?' disabled':'')+'>'+(l.status==='new'?'Mark as called back':'Log another call')+'</button></div><p class="lbl" style="margin-top:14px">Remind me</p><div class="seg">'+FU.map(function(f){return '<button class="opt" type="button" data-act="fu" data-v="'+f[0]+'" aria-pressed="'+(l.fu===f[0])+'"'+(closed?' disabled':'')+'>'+f[0]+'</button>';}).join('')+'</div>'+(l.fu&&!closed?'<p class="help">Reminder set: '+esc(l.fu)+'</p>':'')+'</section>';
+ var out='<section class="card"><h2>3. Outcome</h2>'+(l.status==='booked'?'<p style="margin:10px 0 0"><b>Appointment confirmed:</b> '+esc(l.slot)+'</p>':l.status==='lost'?'<p style="margin:10px 0 0"><b>Lost:</b> '+esc(l.lost||'')+'</p><button class="btn" type="button" data-act="reopen" style="margin-top:10px">Reopen lead</button>':
+  '<p class="lbl" style="margin-top:12px">Book an appointment</p><div class="seg">'+SLOTS.map(function(s){return '<button class="btn sm" type="button" data-act="book" data-v="'+s+'"'+(l.qualified===false?' disabled':'')+'>'+s+'</button>';}).join('')+'</div>'+(l.qualified===false?'<p class="help">Not qualified leads cannot be booked. Change the qualification first.</p>':'')+'<p class="lbl" style="margin-top:16px">Or mark as lost</p><div class="seg">'+LOST.map(function(r){return '<button class="opt" type="button" data-act="lost" data-v="'+r+'">'+r+'</button>';}).join('')+'</div>')+'</section>';
+ var tl='<section class="card"><h2>Notes and history</h2><textarea id="note" aria-label="Add a note" placeholder="Add a note for your team"></textarea><div style="margin:8px 0 14px"><button class="btn sm" type="button" data-act="note">Save note</button></div><ul class="tl">'+l.tl.slice().sort(function(a,b){return b.at-a.at;}).map(function(e){return '<li><span>'+esc(e.text)+'<small>'+when(e.at)+'</small></span></li>';}).join('')+'</ul></section>';
+ return h+'<div class="grid2"><div style="display:flex;flex-direction:column;gap:18px">'+qual+act+out+'</div>'+tl+'</div>';}
+function insights(){var head='<div><h1>Insights</h1><p class="sub">Where enquiries stall, and why.</p></div>';var sc=stateCard();if(sc)return head+sc;
+ var s=stats(),L=S.leads;var lost={};L.forEach(function(l){if(l.status==='lost'&&l.lost)lost[l.lost]=(lost[l.lost]||0)+1;});var ks=Object.keys(lost).sort(function(a,b){return lost[b]-lost[a];});var mx=ks.length?lost[ks[0]]:0;
+ var b={a:0,b:0,c:0,d:0};L.forEach(function(l){if(l.resp==null){if(l.status==='new')b.d++;return;}if(l.resp<15)b.a++;else if(l.resp<=60)b.b++;else b.c++;});var rm=Math.max(b.a,b.b,b.c,b.d,1);
+ var rb=function(t,n){return '<div class="fbar"><span>'+t+'</span><div class="tr"><div class="fl" style="width:'+Math.max(2,n/rm*100)+'%"></div></div><b>'+n+'</b></div>';};
+ return head+'<section class="card"><h2>Funnel steps</h2><div class="list" style="margin-top:8px">'
+ +'<div class="item"><span><span class="t">Calls to connected</span><br><span class="m">Connected calls ÷ all calls</span></span><b>'+pct(s.conn,s.calls)+'</b></div>'
+ +'<div class="item"><span><span class="t">Connected to qualified</span><br><span class="m">Qualified leads ÷ connected calls. Often the biggest drop.</span></span><b>'+pct(s.qual,s.conn)+'</b></div>'
+ +'<div class="item"><span><span class="t">Qualified to booked</span><br><span class="m">Confirmed appointments ÷ qualified leads</span></span><b>'+pct(s.book,s.qual)+'</b></div></div></section>'
+ +'<div class="two"><section class="card"><h2>Why leads were lost</h2><div class="funnel" style="margin-top:12px">'+(ks.length?ks.map(function(k){return '<div class="fbar" style="grid-template-columns:140px minmax(0,1fr) 40px"><span>'+esc(k)+'</span><div class="tr"><div class="fl" style="width:'+Math.max(2,lost[k]/mx*100)+'%"></div></div><b>'+lost[k]+'</b></div>';}).join(''):'<p class="sub">No lost leads yet.</p>')+'</div></section>'
+ +'<section class="card"><h2>Time to first response</h2><div class="funnel" style="margin-top:12px">'+rb('Under 15 min',b.a)+rb('15 to 60 min',b.b)+rb('Over an hour',b.c)+rb('No response yet',b.d)+'</div><p class="help">Sample data. Faster replies are a hypothesis to test, not a known cause.</p></section></div>';}
+function guide(){var l1=lead('L01');var P=S.p;
+ var steps=[['Open the Dashboard and read the funnel.',P.dash,'dashboard',null],
+ ['Open the missed-call lead “Root canal” and mark it called back.',l1&&l1.status!=='new','detail','L01'],
+ ['Qualify it, then set a reminder.',l1&&l1.qualified===true&&!!l1.fu||(l1&&l1.status==='booked'),'detail','L01'],
+ ['Book an appointment.',l1&&l1.status==='booked','detail','L01'],
+ ['Go back to the Dashboard and watch the numbers move.',P.afterBook,'dashboard',null]];
+ return '<section class="card"><h2>Try this in 2 minutes</h2><p class="help">Follow the steps, or explore freely. The views under “View state” show the loading, empty and error screens.</p><div style="margin-top:8px">'+steps.map(function(s,i){return '<div class="gs'+(s[1]?' ok':'')+'"><span class="gn">'+(s[1]?'✓':(i+1))+'</span><div>'+s[0]+'<br><button class="btn sm" type="button" data-step="'+s[2]+'" data-id="'+(s[3]||'')+'">Take me there</button></div></div>';}).join('')+'</div></section>'
+ +'<section class="card"><h3>What you are looking at</h3><ul style="margin:8px 0 0;padding-left:18px;font-size:14px;color:var(--muted)"><li>A merchant view of enquiries, with synthetic data.</li><li>Status, qualification and outcome are recorded by the clinic.</li><li>Numbers on the Dashboard and Insights are calculated from the leads.</li></ul></section>';}
+function render(){var m=$('main');var top=window.scrollY;var v=S.view;m.innerHTML=(v==='dashboard'?dashboard():v==='leads'?leads():v==='detail'?detail():insights());nav();$('guide').innerHTML=guide();
+ var q=$('q');if(q&&S.focusQ){q.focus();var n=q.value.length;q.setSelectionRange(n,n);}S.focusQ=false;window.scrollTo(0,top);save();}
+function go(v,id){S.view=v;if(id)S.sel=id;if(v==='dashboard'&&S.p.dash){}render();window.scrollTo(0,0);if(v==='dashboard'&&S.lastBooked){S.p.afterBook=true;S.lastBooked=false;render();}}
+function log(l,t){l.tl.push({at:Date.now(),text:t});}
+document.addEventListener('click',function(e){var t=e.target.closest('[data-go],[data-open],[data-filter],[data-leads],[data-act],[data-step]');if(!t)return;
+ if(t.dataset.go){S.ui==='normal'||0;go(t.dataset.go);return;}
+ if(t.dataset.open){go('detail',t.dataset.open);return;}
+ if(t.dataset.filter){S.filter=t.dataset.filter;S.q='';S.view='leads';render();return;}
+ if(t.dataset.leads){S.filter=t.dataset.leads==='lost'?'lost':t.dataset.leads;S.view='leads';S.q='';render();window.scrollTo(0,0);return;}
+ if(t.dataset.step){var st=t.dataset.step;if(st==='dashboard'){go('dashboard');var ls=stats();if(lead('L01')&&lead('L01').status==='booked'){S.p.afterBook=true;render();}}else go('detail',t.dataset.id);return;}
+ var a=t.dataset.act,l=lead(S.sel),v=t.dataset.v;
+ if(a==='ui'){S.ui=v;$('uistate').value=v;render();return;}
+ if(!l)return;
+ if(a==='qual'){if(v==='yes'){l.qualified=true;if(l.status==='lost'&&l.lost&&REASONS.indexOf(l.lost)>-1){l.status='contacted';l.lost=null;}log(l,'Marked qualified');toast('Marked qualified');}
+  else{l.qualified=false;l.status='lost';l.lost=v;log(l,'Marked not qualified: '+v);toast('Closed as not qualified');}}
+ else if(a==='call'){if(l.status==='new'){l.status='contacted';l.resp=Math.max(1,Math.round((Date.now()-l.at)/MIN));}log(l,'Called back');toast('Call logged');}
+ else if(a==='fu'){l.fu=v;if(l.status==='new'){l.status='contacted';l.resp=Math.max(1,Math.round((Date.now()-l.at)/MIN));log(l,'Called back');}log(l,'Reminder set: '+v);toast('Reminder set');}
+ else if(a==='book'){if(l.qualified!==true){l.qualified=true;log(l,'Marked qualified');}if(l.status==='new'){l.resp=Math.max(1,Math.round((Date.now()-l.at)/MIN));}l.status='booked';l.slot=v;l.lost=null;log(l,'Appointment confirmed: '+v);toast('Appointment confirmed');S.lastBooked=true;}
+ else if(a==='lost'){l.status='lost';l.lost=v;log(l,'Marked lost: '+v);toast('Marked lost');}
+ else if(a==='reopen'){l.status='contacted';l.lost=null;if(l.qualified===false)l.qualified=null;log(l,'Reopened');toast('Lead reopened');}
+ else if(a==='note'){var n=$('note');if(n&&n.value.trim()){log(l,'Note: '+n.value.trim());toast('Note saved');}else{toast('Write a note first');return;}}
+ render();});
+document.addEventListener('input',function(e){if(e.target.id==='q'){S.q=e.target.value;S.focusQ=true;render();}});
+$('uistate').addEventListener('change',function(e){S.ui=e.target.value;if(S.ui==='loading'){render();setTimeout(function(){if(S.ui==='loading'){S.ui='normal';$('uistate').value='normal';render();}},1600);}else render();});
+$('reset').addEventListener('click',function(){S.leads=seed();S.p={dash:false,afterBook:false};S.view='dashboard';S.filter='all';S.q='';S.ui='normal';$('uistate').value='normal';try{localStorage.removeItem(KEY);}catch(e){}render();toast('Demo reset');});
+window.__S=S;
+render();
+})();
+</script>
+</body>
+</html>
